@@ -25,4 +25,12 @@ func main() {
 	}
 
 	fmt.Println(string(data))
+
+	bytes, e := json.Marshal(c)
+	if e != nil {
+		log.Println("ERROR:", e)
+		return
+	}
+	fmt.Println(string(bytes))
+
 }

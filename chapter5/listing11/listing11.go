@@ -24,6 +24,11 @@ func (u *user) changeEmail(email string) {
 	u.email = email
 }
 
+// 被修改得仅仅是副本，不会改变原对象属性
+func (u user) changeEmail2(email string) {
+	u.email = email
+}
+
 // main is the entry point for the application.
 func main() {
 	// Values of type user can be used to call methods
@@ -45,4 +50,11 @@ func main() {
 	// declared with a pointer receiver.
 	lisa.changeEmail("lisa@newdomain.com")
 	lisa.notify()
+
+	bill.changeEmail2("bill@2.com")
+	bill.notify()
+
+	lisa.changeEmail2("lisa@2.com")
+	lisa.notify()
+
 }

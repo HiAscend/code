@@ -37,4 +37,12 @@ func main() {
 	}
 
 	fmt.Println(c)
+
+	bytes, e := json.MarshalIndent(c, "", "    ")
+	if e != nil {
+		log.Println("ERROR", e)
+		return
+	}
+
+	fmt.Println(string(bytes))
 }

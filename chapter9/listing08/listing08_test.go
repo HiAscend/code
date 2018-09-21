@@ -17,11 +17,11 @@ func TestDownload(t *testing.T) {
 		statusCode int
 	}{
 		{
-			"http://www.goinggo.net/feeds/posts/default?alt=rss",
+			"https://www.ardanlabs.com/blog/index.xml",
 			http.StatusOK,
 		},
 		{
-			"http://rss.cnn.com/rss/cnn_topstbadurl.rss",
+			"https://www.ardanlabs.com/blog/index2.xml",
 			http.StatusNotFound,
 		},
 	}

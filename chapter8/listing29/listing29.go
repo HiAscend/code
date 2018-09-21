@@ -31,4 +31,9 @@ func main() {
 	fmt.Println("Contact")
 	fmt.Println("H:", c["contact"].(map[string]interface{})["home"])
 	fmt.Println("C:", c["contact"].(map[string]interface{})["cell"])
+
+	name := c["name2"]
+	if name != nil {
+		fmt.Println("name属性存在")
+	}
 }

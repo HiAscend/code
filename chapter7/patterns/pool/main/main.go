@@ -3,14 +3,13 @@
 package main
 
 import (
+	"github.com/goinaction/code/chapter7/patterns/pool"
 	"io"
 	"log"
 	"math/rand"
 	"sync"
 	"sync/atomic"
 	"time"
-
-	"github.com/goinaction/code/chapter7/patterns/pool"
 )
 
 const (
@@ -75,6 +74,9 @@ func main() {
 
 // performQueries tests the resource pool of connections.
 func performQueries(query int, p *pool.Pool) {
+	// Wait to simulate a query response.
+	time.Sleep(time.Duration(rand.Intn(100)) * time.Millisecond)
+
 	// Acquire a connection from the pool.
 	conn, err := p.Acquire()
 	if err != nil {
@@ -85,7 +87,5 @@ func performQueries(query int, p *pool.Pool) {
 	// Release the connection back to the pool.
 	defer p.Release(conn)
 
-	// Wait to simulate a query response.
-	time.Sleep(time.Duration(rand.Intn(1000)) * time.Millisecond)
 	log.Printf("Query: QID[%d] CID[%d]\n", query, conn.(*dbConnection).ID)
 }

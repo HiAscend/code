@@ -12,7 +12,7 @@ type PostgresDriver struct{}
 
 // Open provides a connection to the database.
 func (dr PostgresDriver) Open(string) (driver.Conn, error) {
-	return nil, errors.New("Unimplemented")
+	return nil, errors.New("unimplemented")
 }
 
 var d *PostgresDriver
